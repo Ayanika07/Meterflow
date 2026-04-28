@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:5000"
+  baseURL: "https://meterflow-mfic.onrender.com/"  // ← paste your Render URL here
 });
 
 instance.interceptors.request.use((config) => {

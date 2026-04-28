@@ -12,7 +12,12 @@ import billingRoutes from "./routes/billingRoutes.js";
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://meterflow.netlify.app/login"  // ← add this after you get Netlify URL
+  ]
+}));
 app.use(express.json());
 
 app.use("/auth", authRoutes);
@@ -21,6 +26,7 @@ app.use("/apis", apiRoutes);
 app.use("/gateway", gatewayRoutes);
 app.use("/logs", logRoutes);
 app.use("/billing", billingRoutes);
+
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("DB connected"))
