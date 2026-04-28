@@ -15,7 +15,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://meterflow.netlify.app/login"  // ← add this after you get Netlify URL
+    "https://meterflow.netlify.app"  // ← add this after you get Netlify URL
   ]
 }));
 app.use(express.json());
